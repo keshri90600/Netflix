@@ -1,0 +1,92 @@
+# 📊 Netflix Data Cleaning and Visualization Project
+
+This project involves cleaning and visualizing Netflix content data using **PostgreSQL** and **Tableau**. The goal is to demonstrate practical skills in data wrangling, transformation, and dashboard design.
+
+---
+
+## 🗂️ Dataset Overview
+
+The dataset includes Netflix titles added from **2008 to 2021**, with the oldest content dating back to **1925**. The cleaned version of the dataset was used for visualizations.
+
+- ✅ Source: [Original dataset](https://www.kaggle.com/datasets/shivamb/netflix-shows)
+- 📁 Cleaned Dataset: `netflix1_cleaned.csv`
+
+---
+
+## 🧼 Data Cleaning (PostgreSQL)
+
+The cleaning process focused on:
+- **Removing nulls**
+- **Populating missing values**
+- **Splitting and dropping unnecessary columns**
+- **Ensuring consistency for Tableau visualization**
+
+### ✅ Null Handling Summary
+
+| Column        | Nulls Found | Action Taken |
+|---------------|-------------|--------------|
+| `director`    | ~2634       | Filled using relationship with `movie_cast`; remaining set as `"Not Given"` |
+| `country`     | ~831        | Filled using `director`; remaining set as `"Not Given"` |
+| `date_added`  | 10          | Rows deleted |
+| `rating`      | 4           | Rows deleted |
+| `duration`    | 3           | Rows deleted |
+| `movie_cast`  | ~825        | Column dropped (not relevant for analysis) |
+| `description` | -           | Dropped (not used in visualization) |
+
+### 🧹 Other Cleaning Steps
+
+- **Duplicates**: Verified using `show_id` – none found
+- **Split multiple countries** in the `country` column and retained only the **first** for mapping
+- **Dropped** unnecessary columns: `movie_cast`, `description`
+- **Final columns** used in visualization:
+  - `show_id`, `type`, `title`, `director`, `country`, `date_added`, `release_year`, `rating`, `duration`, `listed_in`
+
+---
+
+## 📈 Visualization (Tableau)
+
+An interactive dashboard was created using Tableau to explore insights such as:
+- Distribution of content by country
+- Content trends over the years
+- Most common ratings and genres
+- Director-based content analysis
+
+🔗 **[View Tableau Dashboard Here](#)** (insert link to your published Tableau dashboard)
+
+---
+
+## 🛠️ Tools Used
+- **PostgreSQL** – SQL-based data cleaning
+- **Tableau** – Dashboard and visual analytics
+- **Pandas** – For quick simulations (optional)
+- **VS Code / DBeaver / pgAdmin** – SQL environment
+
+---
+
+## 📌 Key Takeaways
+
+- Cleaned and transformed a raw dataset to be visualization-ready
+- Practiced advanced SQL queries (CTEs, JOINs, CASE, COALESCE, SPLIT_PART)
+- Built an interactive Tableau dashboard from scratch
+- Focused on real-world data wrangling skills for business insights
+
+---
+
+## 📁 Files in Repo
+
+| File | Description |
+|------|-------------|
+| `netflix1_cleaned.csv` | Final cleaned dataset used in Tableau |
+| `netflix_cleaning.sql` | SQL script with all cleaning steps |
+| `README.md` | Project overview |
+
+---
+
+## 🙌 Let's Connect
+
+If you have any feedback or questions about the project, feel free to connect!
+
+- 💼 [LinkedIn](#)
+- 💻 [Portfolio](#)
+- 📫 Email: yourname@email.com
+
